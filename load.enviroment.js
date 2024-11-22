@@ -6,7 +6,7 @@ export default function loadEnv () {
   }
 
   if (process.env.NODE_ENV === 'production') {
-    dotenv.config({ path: '.env' })
+    dotenv.config({ path: '.env.prod' })
   }
 
   if (process.env.NODE_ENV === 'development') {
