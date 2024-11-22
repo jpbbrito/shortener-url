@@ -37,9 +37,11 @@ export async function deleteUrl(request, response) {
     const url = await findUrlByShortId(shortId)
 
     if (url.status === 'deleted') {
-        return { message: 'Já deletada anteriormente!' }
+        return response.status(401).json({ message: 'Já deletada anteriormente!'})
     }
-
+    if (!url || url.length === 0) {
+        return response.status(404).json({ message: 'URL não encontrada!'}) 
+    }
     const user = await findUserByEmail(email)
 
     const result = await deleteUrlByShortIdAndUserId(shortId, user.id)

@@ -1,4 +1,5 @@
 import knex from 'knex'
+
 import app from './src/server.js'
 import configuration from './knexfile.js'
 import Database from './src/services/database.js'

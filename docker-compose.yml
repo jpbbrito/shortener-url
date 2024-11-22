@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   api: 
-    container_name: url_shortener-${ENV}
+    container_name: shortener-url-${ENV}
     build:
       context: .
     volumes:
@@ -13,7 +13,7 @@ services:
     env_file: 
       - ${ENV_FILE}
   db:
-    container_name: url_shortener-${ENV}
+    container_name: shortener-url-db-${ENV}
     image: postgres:14-alpine
     environment:
       - POSTGRES_USER=${DB_USER}

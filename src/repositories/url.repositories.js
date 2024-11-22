@@ -67,7 +67,7 @@ export async function updateUrlByShortIdAndUserId(shortId, userId, url) {
                 updated_at: Database.connection.fn.now(),
                 url_destination: url
             }).returning(['short_id', 'url_destination', 'count_clicks', 'status', 'status_history', 'created_at', 'updated_at'])
-        return result
+        return result[0]
     } catch (err) {
         console.log('[deleteUrlByShortId] -> err', err)
         return 'code_error_db'
@@ -122,7 +122,7 @@ export async function deleteUrlByShortIdAndUserId(shortId, userId) {
                 updated_at: Database.connection.fn.now(),
                 status_history: JSON.stringify(url.status_history)
             }).returning(['short_id', 'url_destination', 'count_clicks', 'status', 'status_history', 'created_at', 'updated_at'])
-        return result
+        return result[0]
     } catch (err) {
         console.log('[deleteUrlByShortId] -> err', err)
         return 'code_error_db'
