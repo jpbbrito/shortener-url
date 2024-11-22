@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx nodemon --env-file=.dev.env app.js",
     "knex:dev": "NODE_ENV=development npx knex",
-    "db:dev:up": "docker compose --env-file .dev.env up db -d"
+    "db:dev:up": "docker compose --env-file .dev.env up db -d",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
